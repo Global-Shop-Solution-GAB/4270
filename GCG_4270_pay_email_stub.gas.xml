@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>226</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>226</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>226</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.ScreenSU.Start</string>
+        <string>Program.Sub.ScreenSU.End</string>
+        <string />
+        <string>Program.Sub.Preflight.Start</string>
+        <string />
+        <string>Variable.UDT.uEmail.Define("Emp",String)</string>
+        <string>Variable.UDT.uEmail.Define("Email",String)</string>
+        <string>Variable.UDT.uEmail.Define("Name",String)</string>
+        <string>Variable.UDT.uEmail.Define("Date",String)</string>
+        <string>Variable.UDT.uEmail.Define("RPTID",String)</string>
+        <string>Variable.uGlobal.uEmail.Declare("uEmail")</string>
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>'Coded by: JLH</string>
+        <string>'Project Start Date: 8/29/2011</string>
+        <string>'Updated by SFF, converted to use BI_PAYROLL_CHECKS TABLE AND DIFFERENT HOOK DUE TO UPDATE TO 2015.3 and TABLE CHANGES IN CORE</string>
+        <string />
+        <string>'F.Intrinsic.Debug.ShowCallerInfo</string>
+        <string />
+        <string>F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.Caller.Hook,=,"36820")</string>
+        <string>	V.uGlobal.uEmail.Redim(-1,-1)</string>
+        <string />
+        <string>	F.Intrinsic.Control.CallSub(Build_udt)</string>
+        <string>	F.Intrinsic.Control.CallSub(Send_email)</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.Control.CallSub(Unload)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: atg_pay_email_stub.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(Unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.Build_UDT.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Build_UDT_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>V.Local.sEmp.Declare(String)</string>
+        <string>V.Local.sQuery.Declare(String)</string>
+        <string>V.Local.iUB.Declare(Long)</string>
+        <string />
+        <string>'Loop through Active Employees</string>
+        <string>'V.Local.sQuery.set("Select DISTINCT(EMPLOYEE), check_date from V_BI_PAYROLL_CHKS where check_date &lt;&gt; '00000000' AND check_date &lt;&gt;  ''")</string>
+        <string>'why are we not going against terminal duh?</string>
+        <string>'also since now we print a standard checks 003305 and a direct deposit reoirt 009026 we must only select those that fit first.</string>
+        <string>F.Intrinsic.String.Build("Select Distinct (Employee),Check_Date,RPTID From V_BI_PAYROLL_CHKS Where Check_Date &lt;&gt;'1900-01-01' And TRMNL = '{0}' And RPTID = '{1}'",V.Caller.Terminal,"009026",V.Local.sQuery)</string>
+        <string>F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.sQuery)</string>
+        <string>F.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)</string>
+        <string>	F.Intrinsic.String.Concat("Select * from GCG_4270_PYRL_Email where EMPLOYEE='",V.ODBC.conx!rst.FieldVal!Expr_1,"' and EMAIL_PRIMARY &lt;&gt; ''",V.Local.sQuery)</string>
+        <string>	F.ODBC.Connection!conx.OpenRecordsetRO("rstEmail",V.Local.sQuery)</string>
+        <string>	F.Intrinsic.Control.If(V.ODBC.conx!rstEmail.EOF,=,False)</string>
+        <string>		F.Intrinsic.Control.If(V.uGlobal.uEmail.UBound,=,-1)</string>
+        <string>			V.uGlobal.uEmail.Redim(0,0)</string>
+        <string>		F.Intrinsic.Control.Else</string>
+        <string>			V.Local.iUB.Set(V.uGlobal.uEmail.UBound)</string>
+        <string>			F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)</string>
+        <string>			V.uGlobal.uEmail.RedimPreserve(0,V.Local.iUB)</string>
+        <string>		F.Intrinsic.Control.EndIf</string>
+        <string>		V.uGlobal.uEmail(v.Local.iUB)!Emp.Set(V.ODBC.conx!rstEmail.FieldVal!EMPLOYEE)</string>
+        <string>		V.uGlobal.uEmail(v.Local.iUB)!Email.Set(V.ODBC.conx!rstEmail.FieldVal!EMAIL_PRIMARY)</string>
+        <string>		V.uGlobal.uEmail(v.Local.iUB)!Date.Set(V.ODBC.conx!rst.FieldVal!CHECK_DATE)</string>
+        <string>		V.uGlobal.uEmail(v.Local.iUB)!RPTID.Set(V.ODBC.conx!rst.FieldValTrim!RPTID)</string>
+        <string />
+        <string>		F.Intrinsic.String.Concat("Select * from EMPLOYEE_MSTR where EMPLOYEE='",V.ODBC.conx!rst.FieldVal!Expr_1,"'",V.Local.sQuery)</string>
+        <string>		F.ODBC.Connection!conx.OpenRecordsetRO("rstName",V.Local.sQuery)</string>
+        <string>		F.Intrinsic.Control.If(V.ODBC.conx!rstName.EOF,=,False)</string>
+        <string>			V.uGlobal.uEmail(v.Local.iUB)!Name.Set(V.ODBC.conx!rstName.FieldVal!NAME)</string>
+        <string>		F.Intrinsic.Control.EndIf</string>
+        <string>		F.ODBC.conx!rstName.Close</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string>	F.ODBC.conx!rstEmail.Close</string>
+        <string>	F.ODBC.conx!rst.MoveNext</string>
+        <string>F.Intrinsic.Control.Loop</string>
+        <string>F.ODBC.conx!rst.Close</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Build_UDT_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: atg_pay_email_stub_VWS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(Unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Build_UDT.End</string>
+        <string />
+        <string>Program.Sub.Send_Email.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Send_Email_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>V.Local.sName.Declare(String)</string>
+        <string>V.Local.sVal.Declare(String)</string>
+        <string>V.Local.sTemp.Declare(String)</string>
+        <string>V.Local.sDir.Declare(String)</string>
+        <string>V.Local.sFile.Declare(String)</string>
+        <string>V.Local.iCount.Declare(Long)</string>
+        <string>V.Local.bRet.Declare(Boolean)</string>
+        <string>V.Local.iID.Declare(Long)</string>
+        <string>V.Local.sFQN.Declare(String)</string>
+        <string>V.Local.sRequiredParams.Declare(String)</string>
+        <string>V.Local.sRetFile.Declare(String)</string>
+        <string>V.Local.iBIRunID.Declare(Long)</string>
+        <string>V.Local.iLOGID.Declare(Long)</string>
+        <string>V.Local.bFile.Declare(Boolean)</string>
+        <string>V.Local.sMess.Declare(String)</string>
+        <string>V.Local.sRptID.Declare(String)</string>
+        <string>V.Local.iTot.declare(Long)</string>
+        <string>V.local.iCPlus1.Declare(Long)</string>
+        <string>V.Local.dDefDate.Declare(Date)</string>
+        <string>V.Local.sSQL.declare(String)</string>
+        <string>V.Local.sBody.Declare(String)</string>
+        <string>'</string>
+        <string>F.Intrinsic.Date.DateAdd("H",18,V.Ambient.Now,V.Local.dDefDate)</string>
+        <string>F.Intrinsic.String.Build("Attached is your Metallic Products direct deposit pay stub.{0}Please note that your pay stub will not be deposited until Wednesday of the current week.",V.Ambient.NewLine,V.Local.sBody)</string>
+        <string>F.Intrinsic.String.Concat(V.Caller.PluginsDir,"\Paystubs",V.Local.sDir)</string>
+        <string>F.Intrinsic.File.DirExists(V.Local.sDir,V.Local.bRet)</string>
+        <string>F.Intrinsic.Control.If(V.Local.bRet,=,False)</string>
+        <string>	F.Intrinsic.File.CreateDir(V.Local.sDir)</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>'required report params</string>
+        <string>V.Local.sRequiredParams.Set("TERMINAL*!*Rptid*!*Employee")</string>
+        <string>F.Intrinsic.String.Build("{0}\PAYSTUB_{1}",V.System.Temp,V.Caller.Terminal,V.Local.sRetFile)</string>
+        <string />
+        <string>F.Intrinsic.UI.InvokeWaitDialog("Paystub Email Processing...","Email Paystub Program")</string>
+        <string>F.Intrinsic.Math.Add(V.uGlobal.uEmail.UBound,1,V.Local.iTot)</string>
+        <string />
+        <string>F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uEmail.UBound,1)</string>
+        <string>	V.Local.sName.Set("Terminal*!*Rptid*!*Employee")</string>
+        <string>	F.Intrinsic.Math.Add(V.Local.iCount,1,V.Local.iCPlus1)</string>
+        <string>	F.Intrinsic.String.Build("Emailing paystub for Employee : {0} {1} Name {2}{1}{1}{1}{3} of {4}",V.uGlobal.uEmail(v.Local.iCount)!Emp,V.Ambient.Tab,V.uGlobal.uEmail(v.Local.iCount)!Name,V.local.iCPlus1,V.Local.iTot,V.Local.sMess)</string>
+        <string>	F.Intrinsic.UI.ChangeWaitStatus(V.Local.sMess,V.Local.iCount,0,V.uGlobal.uEmail.UBound)</string>
+        <string>'update 2015.2</string>
+        <string>'a brillaint person decided that we should have 2 reports for the direct deposit and standard check</string>
+        <string>'so now we need to first figure which report we need to print out.</string>
+        <string>	V.Local.sRptID.Set(V.uGlobal.uEmail(v.Local.iCount)!RPTID)</string>
+        <string />
+        <string>	F.Intrinsic.String.concat(V.Caller.Terminal,"*!*",V.Local.sRPTID,"*!*",V.uGlobal.uEmail(v.Local.iCount)!Emp,V.Local.sVal)</string>
+        <string>	V.Local.sTemp.Set(V.uGlobal.uEmail(v.Local.iCount)!Date)</string>
+        <string>'	F.Intrinsic.String.limitsplit(V.uGlobal.uEmail(v.Local.iCount)!Date,4,V.Local.sTemp)</string>
+        <string>'	F.Intrinsic.String.Concat(V.Local.sTemp(1),V.Local.sTemp(0),V.Local.sTemp)</string>
+        <string>	F.Intrinsic.String.Concat(V.uGlobal.uEmail(v.Local.iCount)!Emp,"_",V.local.sTemp,".pdf",V.Local.sFile)</string>
+        <string>	f.Intrinsic.File.MakeFilenameFriendly(v.Local.sFile,v.Local.sFile)</string>
+        <string>	'make it file name friendly</string>
+        <string>	F.Intrinsic.String.Concat(V.Local.sDir,"\",V.Local.sFile,V.Local.sFQN)</string>
+        <string />
+        <string>	'Getting Rund ID and Long ID</string>
+        <string>	F.Global.BI.GetRunID(V.Local.iBIRUNID)</string>
+        <string>	F.Global.BI.GetIDFromName("GCG_4270_PY_LongChk.rpt",V.Local.iID)</string>
+        <string>	F.Global.BI.StartLogging(V.Local.iBIRUNID,V.Local.iID,-1,"GCG_4270_PY_LongChk.rpt",V.Local.iLOGID)</string>
+        <string />
+        <string>	F.Global.BI.RunReportPreProcessor(V.Local.iBIRUNID,V.Local.iLOGID,V.Local.sName,V.Local.sVal,"",4,True,"",-1,"",0,V.Local.sFQN,"",V.Local.sRequiredParams,V.Local.sRetFile,V.Local.iLOGID)</string>
+        <string />
+        <string>	F.Global.BI.StopLogging(V.Local.iLOGID)</string>
+        <string />
+        <string>	F.Intrinsic.File.Exists(V.Local.sFQN,V.Local.bFile)</string>
+        <string>	F.Intrinsic.Control.If(V.Local.bFile,=,False)</string>
+        <string>		F.Intrinsic.UI.Msgbox("PDF was not created.Please contact Global Shop.")</string>
+        <string>		F.Intrinsic.Control.CallSub(Unload)</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>	F.Intrinsic.File.Exists(V.Local.sFQN,V.Local.bRet)</string>
+        <string>	F.Intrinsic.Control.If(V.Local.bRet,=,True)</string>
+        <string>'		F.Intrinsic.String.limitsplit(V.local.sTemp,2,V.Local.sTemp)</string>
+        <string>'		F.Intrinsic.String.Concat(V.Local.sTemp(0),"/",V.Local.sTemp(1),"/",V.Local.sTemp(2),V.Local.sTemp)</string>
+        <string>		F.Intrinsic.String.Concat("Paycheck Stub ",V.Local.sTemp,V.Local.sTemp)</string>
+        <string>		F.Intrinsic.String.Concat(V.Local.sFile,"*!*",V.Local.sDir,V.Local.sFile)</string>
+        <string>		F.Global.Security.getuserID(V.Caller.User,V.Caller.CompanyCode,V.Local.iID)</string>
+        <string>		Function.Global.Messaging.QueueMessage(V.Caller.CompanyCode,V.local.iID,"",V.Local.sTemp,"pwalton@mpvent.com",V.uGlobal.uEmail(v.Local.iCount)!Email,v.Local.sBody,5,,False,,V.Local.dDefDate,,,,,,V.Local.sFile,True)</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string>F.Intrinsic.Control.Next(V.Local.iCount)</string>
+        <string />
+        <string>F.Intrinsic.UI.CloseWaitDialog</string>
+        <string />
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Send_Email_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: atg_pay_email_stub_VWS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(Unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>Program.Sub.Send_Email.End</string>
+        <string />
+        <string>Program.Sub.Unload.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Unload_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>F.ODBC.Connection!conx.Close</string>
+        <string>F.Intrinsic.Control.End</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Unload_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: atg_pay_email_stub.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.End</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Unload.End</string>
+        <string />
+        <string />
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$$}$$}$12:00:00 AM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>164</WindowOriginY>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>1</Y>
+        </EndPoint>
+        <Text>Program.Sub.ScreenSU</Text>
+        <DisplayText>Program.Sub.ScreenSU</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>3</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>11</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>13</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>45</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>47</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>100</Y>
+        </EndPoint>
+        <Text>Program.Sub.Build_UDT</Text>
+        <DisplayText>Program.Sub.Build_UDT</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>102</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>201</Y>
+        </EndPoint>
+        <Text>Program.Sub.Send_Email</Text>
+        <DisplayText>Program.Sub.Send_Email</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>203</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>222</Y>
+        </EndPoint>
+        <Text>Program.Sub.Unload</Text>
+        <DisplayText>Program.Sub.Unload</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>226</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>228</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
