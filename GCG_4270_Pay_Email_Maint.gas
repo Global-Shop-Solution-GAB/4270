@@ -1,0 +1,269 @@
+Program.Sub.ScreenSU.Start
+gui.SS_Form1..create
+gui.SS_Form1..caption("Pay Stub Email Maint")
+gui.SS_Form1..size(9660,7935)
+gui.SS_Form1..minx(0)
+gui.SS_Form1..miny(0)
+gui.SS_Form1..position(0,0)
+gui.SS_Form1..event(unload,ss_form1_unload)
+gui.SS_Form1..alwaysontop(False)
+gui.SS_Form1..fontname("Arial")
+gui.SS_Form1..fontsize(8)
+gui.SS_Form1..forecolor(0)
+gui.SS_Form1..fontstyle(,,,,)
+gui.SS_Form1..BackColor(-2147483633)
+gui.SS_Form1..controlbox(True)
+gui.SS_Form1..maxbutton(False)
+gui.SS_Form1..minbutton(False)
+gui.SS_Form1..mousepointer(0)
+gui.SS_Form1..moveable(True)
+gui.SS_Form1..sizeable(False)
+gui.SS_Form1..ShowInTaskBar(True)
+gui.SS_Form1..titlebar(True)
+gui.SS_Form1.lbl_txtEmpID.create(label,"Employee ID",True,1800,200,1,100,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl_txtEmpID.defaultvalue("")
+gui.SS_Form1.lbl_txtEmpID.controlgroup(0)
+gui.SS_Form1.txtEmpID.create(textbox,"",True,1800,330,0,100,335,True,0,Arial,8,16777215,1)
+gui.SS_Form1.txtEmpID.defaultvalue("")
+gui.SS_Form1.txtEmpID.controlgroup(0)
+gui.SS_Form1.cmd_txtEmpID.create(button)
+gui.SS_Form1.cmd_txtEmpID.caption("^")
+gui.SS_Form1.cmd_txtEmpID.visible(True)
+gui.SS_Form1.cmd_txtEmpID.size(330,330)
+gui.SS_Form1.cmd_txtEmpID.zorder(0)
+gui.SS_Form1.cmd_txtEmpID.position(1985,335)
+gui.SS_Form1.cmd_txtEmpID.enabled(True)
+gui.SS_Form1.cmd_txtEmpID.fontname("Arial")
+gui.SS_Form1.cmd_txtEmpID.fontsize(8)
+gui.SS_Form1.cmd_txtEmpID.event(click,cmd_txtempid_click)
+gui.SS_Form1.cmd_txtEmpID.defaultvalue("")
+gui.SS_Form1.cmd_txtEmpID.controlgroup(0)
+gui.SS_Form1.lbl_txtEmail.create(label,"Email Address",True,1800,200,1,100,750,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl_txtEmail.defaultvalue("")
+gui.SS_Form1.lbl_txtEmail.controlgroup(0)
+gui.SS_Form1.txtEmail.create(textbox,"",True,4785,330,0,100,950,True,0,Arial,8,16777215,1)
+gui.SS_Form1.txtEmail.defaultvalue("")
+gui.SS_Form1.txtEmail.controlgroup(0)
+gui.SS_Form1.cmdSave.create(button)
+gui.SS_Form1.cmdSave.caption("Add")
+gui.SS_Form1.cmdSave.visible(True)
+gui.SS_Form1.cmdSave.size(1000,360)
+gui.SS_Form1.cmdSave.zorder(0)
+gui.SS_Form1.cmdSave.position(100,1365)
+gui.SS_Form1.cmdSave.enabled(True)
+gui.SS_Form1.cmdSave.fontname("Arial")
+gui.SS_Form1.cmdSave.fontsize(8)
+gui.SS_Form1.cmdSave.event(click,cmdsave_click)
+gui.SS_Form1.cmdSave.defaultvalue("")
+gui.SS_Form1.cmdSave.controlgroup(0)
+gui.SS_Form1.gsfgList.create(gsflexgrid)
+gui.SS_Form1.gsfgList.FixedRows(0)
+gui.SS_Form1.gsfgList.FixedCols(0)
+gui.SS_Form1.gsfgList.visible(True)
+gui.SS_Form1.gsfgList.size(9195,5415)
+gui.SS_Form1.gsfgList.zorder(0)
+gui.SS_Form1.gsfgList.position(100,1800)
+gui.SS_Form1.gsfgList.enabled(True)
+gui.SS_Form1.gsfgList.event(commandclick,gsfglist_commandclick)
+
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.uEmail.Define("Emp_ID",String,Employee)
+Variable.UDT.uEmail.Define("Email_Primary",String,Email_Primary)
+Variable.uGlobal.uEmail.Declare("uEmail")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+F.ODBC.Connection!conX.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+
+V.Local.bEx.Declare(Boolean)
+F.ODBC.Connection!conX.TableExists("GCG_4270_PYRL_EMAIL",V.local.bEx)
+F.Intrinsic.Control.If(V.Local.bEx,=,True)
+	F.Intrinsic.Control.CallSub(Buildstyle)
+	F.Intrinsic.Control.CallSub(Pop_udt)
+	Gui.SS_Form1.txtEmpID.Locked(True)
+	Gui.SS_Form1..Show
+	Gui.SS_Form1.cmd_txtEmpID.SetFocus
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Table: GCG_4270_PYRL_EMAIL Not Found.")
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+program.sub.cmdsave_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdsave_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sID.Declare(String)
+V.Local.sEmail.Declare(String)
+V.Local.sSQL.Declare(String)
+
+
+V.Local.sID.Set(V.Screen.SS_Form1!txtEmpId.Text)
+V.Local.sEmail.Set(V.Screen.SS_Form1!txtEmail.Text)
+
+F.Intrinsic.Control.If(V.Local.sID.Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.ElseIf(V.Local.sEmail.Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat("Select * From GCG_4270_PYRL_EMAIL Where Employee = '",V.Local.sID.Trim,"'",V.Local.sSQL)
+	F.ODBC.Connection!conX.OpenLocalRecordsetRW("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,True)
+		F.ODBC.conX!rst.AddNew
+		F.ODBC.conX!rst.Set!Employee(V.Local.sID.Trim)
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.conX!rst.Set!Email_Primary(V.Local.sEmail.Trim)
+	F.ODBC.conX!rst.Update
+	F.ODBC.conX!rst.Close
+	Gui.SS_Form1.txtEmail.Text("")
+	Gui.SS_Form1.txtEmpID.Text("")
+	Gui.SS_Form1.cmd_txtEmpID.SetFocus
+	Gui.SS_Form1.gsfgList.Visible(FALSE)
+	F.Intrinsic.Control.CallSub(Buildstyle)
+	F.Intrinsic.Control.CallSub(Pop_udt)
+	Gui.SS_Form1.gsfgList.Visible(tRUE)
+
+F.Intrinsic.Control.EndIf
+
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdsave_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_Pay_Email_Maint.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdsave_click.End
+
+program.sub.gsfglist_commandclick.start
+
+V.Local.sRow.Declare(String)
+V.Local.sSQL.Declare(String)
+
+Gui.SS_Form1.gsfgList.ReadRow(V.args.key,V.Local.sRow)
+F.Intrinsic.String.Split(V.Local.sRow.Trim,"*!*",V.Local.sRow)
+
+F.Intrinsic.Control.If(V.Local.sRow(0).Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat("Delete From GCG_4270_PYRL_EMAIL Where Employee = '",V.Local.sRow(0).Trim,"'",V.Local.sSQL)
+	F.ODBC.Connection!conX.Execute(V.Local.sSQL)
+	Gui.SS_Form1.gsfgList.Visible(false)
+
+	F.Intrinsic.Control.CallSub(Buildstyle)
+	F.Intrinsic.Control.CallSub(Pop_udt)
+	Gui.SS_Form1.gsfgList.Visible(True)
+
+F.Intrinsic.Control.EndIf
+
+program.sub.gsfglist_commandclick.End
+
+program.sub.cmd_txtempid_click.start
+
+'browser
+V.Local.sRet.Declare(String)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+F.Intrinsic.UI.Browser(51,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet.Trim,=,"***CANCEL***")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.SS_Form1.txtEmpID.Text(V.Local.sRet(0))
+	Gui.SS_Form1.txtEmail.Text("")
+	Gui.SS_Form1.txtEmail.SetFocus
+F.Intrinsic.Control.EndIf
+
+
+program.sub.cmd_txtempid_click.End
+
+program.sub.ss_form1_unload.start
+F.ODBC.Connection!conx.Close
+
+F.Intrinsic.Control.End
+
+program.sub.ss_form1_unload.End
+
+Program.Sub.Buildstyle.Start
+
+
+
+Gui.SS_Form1.gsfgList.Cols(3)
+Gui.SS_Form1.gsfgList.Rows(2)
+Gui.SS_Form1.gsfgList.FixedRows(1)
+
+Gui.SS_Form1.gsfgList.SetColumnPercentages(".30:.45:.15")
+
+Gui.SS_Form1.gsfgList.TextMatrix(0,0,"Emp ID")
+Gui.SS_Form1.gsfgList.TextMatrix(1,0,"Email")
+
+Gui.SS_Form1.gsfgList.BuildStyle(1,0,"Type","Locked",True)
+Gui.SS_Form1.gsfgList.BuildStyle(1,0,"Fontstyle","Bold",True)
+Gui.SS_Form1.gsfgList.BuildStyle(1,0,"Format","Alignment",4)
+
+
+Gui.SS_Form1.gsfgList.BuildStyle(1,1,"Type","Locked",True)
+Gui.SS_Form1.gsfgList.BuildStyle(1,1,"Fontstyle","Bold",True)
+Gui.SS_Form1.gsfgList.BuildStyle(1,1,"Format","Alignment",4)
+
+
+
+Gui.SS_Form1.gsfgList.BuildStyle(2,0,"Type","Locked",True)
+Gui.SS_Form1.gsfgList.BuildStyle(2,0,"Fontstyle","Bold",False)
+Gui.SS_Form1.gsfgList.BuildStyle(2,0,"Format","Alignment",2)
+
+Gui.SS_Form1.gsfgList.BuildStyle(2,1,"Type","Locked",True)
+Gui.SS_Form1.gsfgList.BuildStyle(2,1,"Fontstyle","Bold",False)
+Gui.SS_Form1.gsfgList.BuildStyle(2,1,"Format","Alignment",2)
+
+
+Gui.SS_Form1.gsfgList.BuildStyle(2,2,"Type","Command","Delete")
+
+Gui.SS_Form1.gsfgList.ApplyStyle(0,1)
+
+Program.Sub.Buildstyle.End
+
+Program.Sub.Pop_UDT.Start
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst","Select * From GCG_4270_PYRL_EMAIL Order BY Employee")
+
+F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rst","v.uglobal.uEmail",False)
+
+Gui.SS_Form1.gsfgList.LoadFromUDT("uglobal.uEmail","Emp_ID*!*Email_Primary",2)
+
+
+
+
+
+
+
+Program.Sub.Pop_UDT.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_Pay_Email_Maint$}$TRT$}$9/30/2014$}$False
+Program.Sub.Comments.End
+
+Program.Sub.ScreenSS.Start
+SS_Form1{{CAPTION::Pay Stub Email Maint
+SS_Form1.CTRL{{NAME::txtEmpID\\TYPE::2\\CAPTION::Employee ID\\GROUP::-1\\BROWSER::1\\SIZE::1
+SS_Form1.CTRL{{NAME::txtEmail\\TYPE::2\\CAPTION::Email Address\\GROUP::-1\\BROWSER::0\\SIZE::2
+SS_Form1.CTRL{{NAME::cmdSave\\TYPE::5\\CAPTION::Add\\GROUP::-1\\BROWSER::0\\SIZE::1
+
+Program.Sub.ScreenSS.End
+
