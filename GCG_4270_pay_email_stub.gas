@@ -1,0 +1,228 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.uEmail.Define("Emp",String)
+Variable.UDT.uEmail.Define("Email",String)
+Variable.UDT.uEmail.Define("Name",String)
+Variable.UDT.uEmail.Define("Date",String)
+Variable.UDT.uEmail.Define("RPTID",String)
+Variable.uGlobal.uEmail.Declare("uEmail")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+'Coded by: JLH
+'Project Start Date: 8/29/2011
+'Updated by SFF, converted to use BI_PAYROLL_CHECKS TABLE AND DIFFERENT HOOK DUE TO UPDATE TO 2015.3 and TABLE CHANGES IN CORE
+
+'F.Intrinsic.Debug.ShowCallerInfo
+
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,"36820")
+	V.uGlobal.uEmail.Redim(-1,-1)
+
+	F.Intrinsic.Control.CallSub(Build_udt)
+	F.Intrinsic.Control.CallSub(Send_email)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub(Unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: atg_pay_email_stub.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.Build_UDT.Start
+F.Intrinsic.Control.SetErrorHandler("Build_UDT_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sEmp.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.iUB.Declare(Long)
+
+'Loop through Active Employees
+'V.Local.sQuery.set("Select DISTINCT(EMPLOYEE), check_date from V_BI_PAYROLL_CHKS where check_date <> '00000000' AND check_date <>  ''")
+'why are we not going against terminal duh?
+'also since now we print a standard checks 003305 and a direct deposit reoirt 009026 we must only select those that fit first.
+F.Intrinsic.String.Build("Select Distinct (Employee),Check_Date,RPTID From V_BI_PAYROLL_CHKS Where Check_Date <>'1900-01-01' And TRMNL = '{0}' And RPTID = '{1}'",V.Caller.Terminal,"009026",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.sQuery)
+F.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+	F.Intrinsic.String.Concat("Select * from GCG_4270_PYRL_Email where EMPLOYEE='",V.ODBC.conx!rst.FieldVal!Expr_1,"' and EMAIL_PRIMARY <> ''",V.Local.sQuery)
+	F.ODBC.Connection!conx.OpenRecordsetRO("rstEmail",V.Local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.conx!rstEmail.EOF,=,False)
+		F.Intrinsic.Control.If(V.uGlobal.uEmail.UBound,=,-1)
+			V.uGlobal.uEmail.Redim(0,0)
+		F.Intrinsic.Control.Else
+			V.Local.iUB.Set(V.uGlobal.uEmail.UBound)
+			F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+			V.uGlobal.uEmail.RedimPreserve(0,V.Local.iUB)
+		F.Intrinsic.Control.EndIf
+		V.uGlobal.uEmail(v.Local.iUB)!Emp.Set(V.ODBC.conx!rstEmail.FieldVal!EMPLOYEE)
+		V.uGlobal.uEmail(v.Local.iUB)!Email.Set(V.ODBC.conx!rstEmail.FieldVal!EMAIL_PRIMARY)
+		V.uGlobal.uEmail(v.Local.iUB)!Date.Set(V.ODBC.conx!rst.FieldVal!CHECK_DATE)
+		V.uGlobal.uEmail(v.Local.iUB)!RPTID.Set(V.ODBC.conx!rst.FieldValTrim!RPTID)
+
+		F.Intrinsic.String.Concat("Select * from EMPLOYEE_MSTR where EMPLOYEE='",V.ODBC.conx!rst.FieldVal!Expr_1,"'",V.Local.sQuery)
+		F.ODBC.Connection!conx.OpenRecordsetRO("rstName",V.Local.sQuery)
+		F.Intrinsic.Control.If(V.ODBC.conx!rstName.EOF,=,False)
+			V.uGlobal.uEmail(v.Local.iUB)!Name.Set(V.ODBC.conx!rstName.FieldVal!NAME)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conx!rstName.Close
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conx!rstEmail.Close
+	F.ODBC.conx!rst.MoveNext
+F.Intrinsic.Control.Loop
+F.ODBC.conx!rst.Close
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Build_UDT_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: atg_pay_email_stub_VWS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Build_UDT.End
+
+Program.Sub.Send_Email.Start
+F.Intrinsic.Control.SetErrorHandler("Send_Email_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sName.Declare(String)
+V.Local.sVal.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sDir.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.iCount.Declare(Long)
+V.Local.bRet.Declare(Boolean)
+V.Local.iID.Declare(Long)
+V.Local.sFQN.Declare(String)
+V.Local.sRequiredParams.Declare(String)
+V.Local.sRetFile.Declare(String)
+V.Local.iBIRunID.Declare(Long)
+V.Local.iLOGID.Declare(Long)
+V.Local.bFile.Declare(Boolean)
+V.Local.sMess.Declare(String)
+V.Local.sRptID.Declare(String)
+V.Local.iTot.declare(Long)
+V.local.iCPlus1.Declare(Long)
+V.Local.dDefDate.Declare(Date)
+V.Local.sSQL.declare(String)
+V.Local.sBody.Declare(String)
+'
+F.Intrinsic.Date.DateAdd("H",1,V.Ambient.Now,V.Local.dDefDate)
+F.Intrinsic.String.Build("Attached is your Metallic Products direct deposit pay stub.{0}Please note that your pay stub will not be deposited until Wednesday of the current week.",V.Ambient.NewLine,V.Local.sBody)
+F.Intrinsic.String.Concat(V.Caller.PluginsDir,"\Paystubs",V.Local.sDir)
+F.Intrinsic.File.DirExists(V.Local.sDir,V.Local.bRet)
+F.Intrinsic.Control.If(V.Local.bRet,=,False)
+	F.Intrinsic.File.CreateDir(V.Local.sDir)
+F.Intrinsic.Control.EndIf
+
+'required report params
+V.Local.sRequiredParams.Set("TERMINAL*!*Rptid*!*Employee")
+F.Intrinsic.String.Build("{0}\PAYSTUB_{1}",V.System.Temp,V.Caller.Terminal,V.Local.sRetFile)
+
+F.Intrinsic.UI.InvokeWaitDialog("Paystub Email Processing...","Email Paystub Program")
+F.Intrinsic.Math.Add(V.uGlobal.uEmail.UBound,1,V.Local.iTot)
+
+F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uEmail.UBound,1)
+	V.Local.sName.Set("Terminal*!*Rptid*!*Employee")
+	F.Intrinsic.Math.Add(V.Local.iCount,1,V.Local.iCPlus1)
+	F.Intrinsic.String.Build("Emailing paystub for Employee : {0} {1} Name {2}{1}{1}{1}{3} of {4}",V.uGlobal.uEmail(v.Local.iCount)!Emp,V.Ambient.Tab,V.uGlobal.uEmail(v.Local.iCount)!Name,V.local.iCPlus1,V.Local.iTot,V.Local.sMess)
+	F.Intrinsic.UI.ChangeWaitStatus(V.Local.sMess,V.Local.iCount,0,V.uGlobal.uEmail.UBound)
+'update 2015.2
+'a brillaint person decided that we should have 2 reports for the direct deposit and standard check
+'so now we need to first figure which report we need to print out.
+	V.Local.sRptID.Set(V.uGlobal.uEmail(v.Local.iCount)!RPTID)
+
+	F.Intrinsic.String.concat(V.Caller.Terminal,"*!*",V.Local.sRPTID,"*!*",V.uGlobal.uEmail(v.Local.iCount)!Emp,V.Local.sVal)
+	V.Local.sTemp.Set(V.uGlobal.uEmail(v.Local.iCount)!Date)
+'	F.Intrinsic.String.limitsplit(V.uGlobal.uEmail(v.Local.iCount)!Date,4,V.Local.sTemp)
+'	F.Intrinsic.String.Concat(V.Local.sTemp(1),V.Local.sTemp(0),V.Local.sTemp)
+	F.Intrinsic.String.Concat(V.uGlobal.uEmail(v.Local.iCount)!Emp,"_",V.local.sTemp,".pdf",V.Local.sFile)
+	f.Intrinsic.File.MakeFilenameFriendly(v.Local.sFile,v.Local.sFile)
+	'make it file name friendly
+	F.Intrinsic.String.Concat(V.Local.sDir,"\",V.Local.sFile,V.Local.sFQN)
+
+	'Getting Rund ID and Long ID
+	F.Global.BI.GetRunID(V.Local.iBIRUNID)
+	F.Global.BI.GetIDFromName("GCG_4270_PY_LongChk.rpt",V.Local.iID)
+	F.Global.BI.StartLogging(V.Local.iBIRUNID,V.Local.iID,-1,"GCG_4270_PY_LongChk.rpt",V.Local.iLOGID)
+
+	F.Global.BI.RunReportPreProcessor(V.Local.iBIRUNID,V.Local.iLOGID,V.Local.sName,V.Local.sVal,"",4,True,"",-1,"",0,V.Local.sFQN,"",V.Local.sRequiredParams,V.Local.sRetFile,V.Local.iLOGID)
+
+	F.Global.BI.StopLogging(V.Local.iLOGID)
+
+	F.Intrinsic.File.Exists(V.Local.sFQN,V.Local.bFile)
+	F.Intrinsic.Control.If(V.Local.bFile,=,False)
+		F.Intrinsic.UI.Msgbox("PDF was not created.Please contact Global Shop.")
+		F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.File.Exists(V.Local.sFQN,V.Local.bRet)
+	F.Intrinsic.Control.If(V.Local.bRet,=,True)
+'		F.Intrinsic.String.limitsplit(V.local.sTemp,2,V.Local.sTemp)
+'		F.Intrinsic.String.Concat(V.Local.sTemp(0),"/",V.Local.sTemp(1),"/",V.Local.sTemp(2),V.Local.sTemp)
+		F.Intrinsic.String.Concat("Paycheck Stub ",V.Local.sTemp,V.Local.sTemp)
+		F.Intrinsic.String.Concat(V.Local.sFile,"*!*",V.Local.sDir,V.Local.sFile)
+		F.Global.Security.getuserID(V.Caller.User,V.Caller.CompanyCode,V.Local.iID)
+		Function.Global.Messaging.QueueMessage(V.Caller.CompanyCode,V.local.iID,"",V.Local.sTemp,"pwalton@mpvent.com",V.uGlobal.uEmail(v.Local.iCount)!Email,v.Local.sBody,5,,False,,,,,,,,V.Local.sFile,True)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+F.Intrinsic.UI.CloseWaitDialog
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Send_Email_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: atg_pay_email_stub_VWS.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Send_Email.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: atg_pay_email_stub.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Unload.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+Program.Sub.Comments.End
