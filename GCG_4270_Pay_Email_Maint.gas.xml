@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Pages>
+    <DefaultPage>
+      <Header />
+      <Footer />
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer />
+    <Header />
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>265</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.ScreenSU.Start</string>
+        <string>gui.SS_Form1..create</string>
+        <string>gui.SS_Form1..caption("Pay Stub Email Maint")</string>
+        <string>gui.SS_Form1..size(9660,7935)</string>
+        <string>gui.SS_Form1..minx(0)</string>
+        <string>gui.SS_Form1..miny(0)</string>
+        <string>gui.SS_Form1..position(0,0)</string>
+        <string>gui.SS_Form1..event(unload,ss_form1_unload)</string>
+        <string>gui.SS_Form1..alwaysontop(False)</string>
+        <string>gui.SS_Form1..fontname("Arial")</string>
+        <string>gui.SS_Form1..fontsize(8)</string>
+        <string>gui.SS_Form1..forecolor(0)</string>
+        <string>gui.SS_Form1..fontstyle(,,,,)</string>
+        <string>gui.SS_Form1..BackColor(-2147483633)</string>
+        <string>gui.SS_Form1..controlbox(True)</string>
+        <string>gui.SS_Form1..maxbutton(False)</string>
+        <string>gui.SS_Form1..minbutton(False)</string>
+        <string>gui.SS_Form1..mousepointer(0)</string>
+        <string>gui.SS_Form1..moveable(True)</string>
+        <string>gui.SS_Form1..sizeable(False)</string>
+        <string>gui.SS_Form1..ShowInTaskBar(True)</string>
+        <string>gui.SS_Form1..titlebar(True)</string>
+        <string>gui.SS_Form1.lbl_txtEmpID.create(label,"Employee ID",True,1800,200,1,100,135,True,0,Arial,8,-2147483633,0)</string>
+        <string>gui.SS_Form1.lbl_txtEmpID.defaultvalue("")</string>
+        <string>gui.SS_Form1.lbl_txtEmpID.controlgroup(0)</string>
+        <string>gui.SS_Form1.txtEmpID.create(textbox,"",True,1800,330,0,100,335,True,0,Arial,8,16777215,1)</string>
+        <string>gui.SS_Form1.txtEmpID.defaultvalue("")</string>
+        <string>gui.SS_Form1.txtEmpID.controlgroup(0)</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.create(button)</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.caption("^")</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.visible(True)</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.size(330,330)</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.zorder(0)</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.position(1985,335)</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.enabled(True)</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.fontname("Arial")</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.fontsize(8)</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.event(click,cmd_txtempid_click)</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.defaultvalue("")</string>
+        <string>gui.SS_Form1.cmd_txtEmpID.controlgroup(0)</string>
+        <string>gui.SS_Form1.lbl_txtEmail.create(label,"Email Address",True,1800,200,1,100,750,True,0,Arial,8,-2147483633,0)</string>
+        <string>gui.SS_Form1.lbl_txtEmail.defaultvalue("")</string>
+        <string>gui.SS_Form1.lbl_txtEmail.controlgroup(0)</string>
+        <string>gui.SS_Form1.txtEmail.create(textbox,"",True,4785,330,0,100,950,True,0,Arial,8,16777215,1)</string>
+        <string>gui.SS_Form1.txtEmail.defaultvalue("")</string>
+        <string>gui.SS_Form1.txtEmail.controlgroup(0)</string>
+        <string>gui.SS_Form1.cmdSave.create(button)</string>
+        <string>gui.SS_Form1.cmdSave.caption("Add")</string>
+        <string>gui.SS_Form1.cmdSave.visible(True)</string>
+        <string>gui.SS_Form1.cmdSave.size(1000,360)</string>
+        <string>gui.SS_Form1.cmdSave.zorder(0)</string>
+        <string>gui.SS_Form1.cmdSave.position(100,1365)</string>
+        <string>gui.SS_Form1.cmdSave.enabled(True)</string>
+        <string>gui.SS_Form1.cmdSave.fontname("Arial")</string>
+        <string>gui.SS_Form1.cmdSave.fontsize(8)</string>
+        <string>gui.SS_Form1.cmdSave.event(click,cmdsave_click)</string>
+        <string>gui.SS_Form1.cmdSave.defaultvalue("")</string>
+        <string>gui.SS_Form1.cmdSave.controlgroup(0)</string>
+        <string>gui.SS_Form1.gsfgList.create(gsflexgrid)</string>
+        <string>gui.SS_Form1.gsfgList.FixedRows(0)</string>
+        <string>gui.SS_Form1.gsfgList.FixedCols(0)</string>
+        <string>gui.SS_Form1.gsfgList.visible(True)</string>
+        <string>gui.SS_Form1.gsfgList.size(9195,5415)</string>
+        <string>gui.SS_Form1.gsfgList.zorder(0)</string>
+        <string>gui.SS_Form1.gsfgList.position(100,1800)</string>
+        <string>gui.SS_Form1.gsfgList.enabled(True)</string>
+        <string>gui.SS_Form1.gsfgList.event(commandclick,gsfglist_commandclick)</string>
+        <string />
+        <string />
+        <string />
+        <string>Program.Sub.ScreenSU.End</string>
+        <string />
+        <string>Program.Sub.Preflight.Start</string>
+        <string />
+        <string>Variable.UDT.uEmail.Define("Emp_ID",String,Employee)</string>
+        <string>Variable.UDT.uEmail.Define("Email_Primary",String,Email_Primary)</string>
+        <string>Variable.uGlobal.uEmail.Declare("uEmail")</string>
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string />
+        <string>F.ODBC.Connection!conX.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)</string>
+        <string />
+        <string />
+        <string>V.Local.bEx.Declare(Boolean)</string>
+        <string>F.ODBC.Connection!conX.TableExists("GCG_4270_PYRL_EMAIL",V.local.bEx)</string>
+        <string>F.Intrinsic.Control.If(V.Local.bEx,=,True)</string>
+        <string>	F.Intrinsic.Control.CallSub(Buildstyle)</string>
+        <string>	F.Intrinsic.Control.CallSub(Pop_udt)</string>
+        <string>	Gui.SS_Form1.txtEmpID.Locked(True)</string>
+        <string>	Gui.SS_Form1..Show</string>
+        <string>	Gui.SS_Form1.cmd_txtEmpID.SetFocus</string>
+        <string>F.Intrinsic.Control.Else</string>
+        <string>	F.Intrinsic.UI.Msgbox("Table: GCG_4270_PYRL_EMAIL Not Found.")</string>
+        <string>	F.Intrinsic.Control.CallSub(Ss_form1_unload)</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string />
+        <string>program.sub.cmdsave_click.start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("cmdsave_click_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>V.Local.sRet.Declare(String)</string>
+        <string>V.Local.sID.Declare(String)</string>
+        <string>V.Local.sEmail.Declare(String)</string>
+        <string>V.Local.sSQL.Declare(String)</string>
+        <string />
+        <string />
+        <string>V.Local.sID.Set(V.Screen.SS_Form1!txtEmpId.Text)</string>
+        <string>V.Local.sEmail.Set(V.Screen.SS_Form1!txtEmail.Text)</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.Local.sID.Trim,=,"")</string>
+        <string>	F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.ElseIf(V.Local.sEmail.Trim,=,"")</string>
+        <string>	F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Else</string>
+        <string>	F.Intrinsic.String.Concat("Select * From GCG_4270_PYRL_EMAIL Where Employee = '",V.Local.sID.Trim,"'",V.Local.sSQL)</string>
+        <string>	F.ODBC.Connection!conX.OpenLocalRecordsetRW("rst",V.Local.sSQL)</string>
+        <string>	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,=,True)</string>
+        <string>		F.ODBC.conX!rst.AddNew</string>
+        <string>		F.ODBC.conX!rst.Set!Employee(V.Local.sID.Trim)</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string>	</string>
+        <string>	F.ODBC.conX!rst.Set!Email_Primary(V.Local.sEmail.Trim)</string>
+        <string>	F.ODBC.conX!rst.Update</string>
+        <string>	F.ODBC.conX!rst.Close</string>
+        <string>	Gui.SS_Form1.txtEmail.Text("")</string>
+        <string>	Gui.SS_Form1.txtEmpID.Text("")</string>
+        <string>	Gui.SS_Form1.cmd_txtEmpID.SetFocus</string>
+        <string>	Gui.SS_Form1.gsfgList.Visible(FALSE)</string>
+        <string>	F.Intrinsic.Control.CallSub(Buildstyle)</string>
+        <string>	F.Intrinsic.Control.CallSub(Pop_udt)</string>
+        <string>	Gui.SS_Form1.gsfgList.Visible(tRUE)</string>
+        <string />
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("cmdsave_click_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_Pay_Email_Maint.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(Ss_form1_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>program.sub.cmdsave_click.end</string>
+        <string />
+        <string />
+        <string>program.sub.gsfglist_commandclick.start</string>
+        <string />
+        <string>V.Local.sRow.Declare(String)</string>
+        <string>V.Local.sSQL.Declare(String)</string>
+        <string />
+        <string>Gui.SS_Form1.gsfgList.ReadRow(V.args.key,V.Local.sRow)</string>
+        <string>F.Intrinsic.String.Split(V.Local.sRow.Trim,"*!*",V.Local.sRow)</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.Local.sRow(0).Trim,=,"")</string>
+        <string>	F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Else</string>
+        <string>	F.Intrinsic.String.Concat("Delete From GCG_4270_PYRL_EMAIL Where Employee = '",V.Local.sRow(0).Trim,"'",V.Local.sSQL)</string>
+        <string>	F.ODBC.Connection!conX.Execute(V.Local.sSQL)</string>
+        <string>	Gui.SS_Form1.gsfgList.Visible(false)</string>
+        <string />
+        <string>	F.Intrinsic.Control.CallSub(Buildstyle)</string>
+        <string>	F.Intrinsic.Control.CallSub(Pop_udt)</string>
+        <string>	Gui.SS_Form1.gsfgList.Visible(True)</string>
+        <string />
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>program.sub.gsfglist_commandclick.end</string>
+        <string />
+        <string />
+        <string>program.sub.cmd_txtempid_click.start</string>
+        <string />
+        <string>'browser</string>
+        <string>V.Local.sRet.Declare(String)</string>
+        <string>F.Intrinsic.UI.SetBrowserHotTypeAhead(True)</string>
+        <string />
+        <string>F.Intrinsic.UI.Browser(51,"",V.Local.sRet)</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.Local.sRet.Trim,=,"***CANCEL***")</string>
+        <string>	F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Else</string>
+        <string>	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)</string>
+        <string>	Gui.SS_Form1.txtEmpID.Text(V.Local.sRet(0))</string>
+        <string>	Gui.SS_Form1.txtEmail.Text("")</string>
+        <string>	Gui.SS_Form1.txtEmail.SetFocus</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>program.sub.cmd_txtempid_click.end</string>
+        <string />
+        <string />
+        <string>program.sub.ss_form1_unload.start</string>
+        <string>F.ODBC.Connection!conx.Close</string>
+        <string />
+        <string>F.Intrinsic.Control.End</string>
+        <string />
+        <string>program.sub.ss_form1_unload.end</string>
+        <string />
+        <string />
+        <string>Program.Sub.Buildstyle.Start</string>
+        <string />
+        <string />
+        <string />
+        <string>Gui.SS_Form1.gsfgList.Cols(3)</string>
+        <string>Gui.SS_Form1.gsfgList.Rows(2)</string>
+        <string>Gui.SS_Form1.gsfgList.FixedRows(1)</string>
+        <string />
+        <string>Gui.SS_Form1.gsfgList.SetColumnPercentages(".30:.45:.15")</string>
+        <string />
+        <string>Gui.SS_Form1.gsfgList.TextMatrix(0,0,"Emp ID")</string>
+        <string>Gui.SS_Form1.gsfgList.TextMatrix(1,0,"Email")</string>
+        <string />
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(1,0,"Type","Locked",True)</string>
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(1,0,"Fontstyle","Bold",True)</string>
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(1,0,"Format","Alignment",4)</string>
+        <string />
+        <string />
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(1,1,"Type","Locked",True)</string>
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(1,1,"Fontstyle","Bold",True)</string>
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(1,1,"Format","Alignment",4)</string>
+        <string />
+        <string />
+        <string />
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(2,0,"Type","Locked",True)</string>
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(2,0,"Fontstyle","Bold",False)</string>
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(2,0,"Format","Alignment",2)</string>
+        <string />
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(2,1,"Type","Locked",True)</string>
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(2,1,"Fontstyle","Bold",False)</string>
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(2,1,"Format","Alignment",2)</string>
+        <string />
+        <string />
+        <string>Gui.SS_Form1.gsfgList.BuildStyle(2,2,"Type","Command","Delete")</string>
+        <string />
+        <string>Gui.SS_Form1.gsfgList.ApplyStyle(0,1)</string>
+        <string />
+        <string>Program.Sub.Buildstyle.End</string>
+        <string />
+        <string />
+        <string>Program.Sub.Pop_UDT.Start</string>
+        <string>F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst","Select * From GCG_4270_PYRL_EMAIL Order BY Employee")</string>
+        <string />
+        <string>F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rst","v.uglobal.uEmail",False)</string>
+        <string />
+        <string>Gui.SS_Form1.gsfgList.LoadFromUDT("uglobal.uEmail","Emp_ID*!*Email_Primary",2)</string>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string>Program.Sub.Pop_UDT.End</string>
+        <string />
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$GCG_Pay_Email_Maint$}$TRT$}$9/30/2014$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+        <string>Program.Sub.ScreenSS.Start</string>
+        <string>SS_Form1{{CAPTION::Pay Stub Email Maint</string>
+        <string>SS_Form1.CTRL{{NAME::txtEmpID\\TYPE::2\\CAPTION::Employee ID\\GROUP::-1\\BROWSER::1\\SIZE::1</string>
+        <string>SS_Form1.CTRL{{NAME::txtEmail\\TYPE::2\\CAPTION::Email Address\\GROUP::-1\\BROWSER::0\\SIZE::2</string>
+        <string>SS_Form1.CTRL{{NAME::cmdSave\\TYPE::5\\CAPTION::Add\\GROUP::-1\\BROWSER::0\\SIZE::1</string>
+        <string />
+        <string>Program.Sub.ScreenSS.End</string>
+        <string />
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>137</WindowOriginY>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>70</Y>
+        </EndPoint>
+        <Text>Program.Sub.ScreenSU</Text>
+        <DisplayText>Program.Sub.ScreenSU</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>72</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>77</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>80</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>98</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>101</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>153</Y>
+        </EndPoint>
+        <Text>program.sub.cmdsave_click</Text>
+        <DisplayText>program.sub.cmdsave_click</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>156</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>177</Y>
+        </EndPoint>
+        <Text>program.sub.gsfglist_commandclick</Text>
+        <DisplayText>program.sub.gsfglist_commandclick</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>180</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>198</Y>
+        </EndPoint>
+        <Text>program.sub.cmd_txtempid_click</Text>
+        <DisplayText>program.sub.cmd_txtempid_click</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>201</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>206</Y>
+        </EndPoint>
+        <Text>program.sub.ss_form1_unload</Text>
+        <DisplayText>program.sub.ss_form1_unload</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>209</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>246</Y>
+        </EndPoint>
+        <Text>Program.Sub.Buildstyle</Text>
+        <DisplayText>Program.Sub.Buildstyle</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>249</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>262</Y>
+        </EndPoint>
+        <Text>Program.Sub.Pop_UDT</Text>
+        <DisplayText>Program.Sub.Pop_UDT</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>263</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>267</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
